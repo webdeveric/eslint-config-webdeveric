@@ -1,0 +1,31 @@
+{
+  "name": "eslint-config-webdeveric",
+  "version": "0.1.0",
+  "description": "My ESLint config",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/webdeveric/eslint-config-webdeveric.git"
+  },
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "webdeveric"
+  ],
+  "author": {
+    "name": "Eric King",
+    "email": "eric@webdeveric.com",
+    "url": "http://webdeveric.com/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/webdeveric/eslint-config-webdeveric/issues"
+  },
+  "homepage": "https://github.com/webdeveric/eslint-config-webdeveric#readme",
+  "dependencies": {
+    "babel-eslint": "^6.0"
+  }
+}
