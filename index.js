@@ -1,3 +1,7 @@
+const OFF = 'off';
+const WARN = 'warn';
+const ERROR = 'error';
+
 module.exports = {
   extends: 'eslint:recommended',
   parser: 'babel-eslint',
@@ -7,14 +11,30 @@ module.exports = {
     es6: true,
   },
   rules: {
-    'no-console': 0,
+    'prefer-const': [
+      ERROR,
+      {
+        destructuring: 'all',
+      },
+    ],
+    'sort-imports': [
+      ERROR,
+      {
+        ignoreCase: true,
+        ignoreDeclarationSort: false,
+        ignoreMemberSort: false,
+        memberSyntaxSortOrder: [ 'none', 'all', 'multiple', 'single' ],
+        allowSeparatedGroups: true,
+      },
+    ],
+    'no-console': OFF,
     quotes: [
-      'warn',
+      WARN,
       'single',
     ],
-    'eol-last': 2,
+    'eol-last': ERROR,
     'no-multiple-empty-lines': [
-      'warn',
+      WARN,
       {
         max: 1,
         maxBOF: 0,
@@ -22,33 +42,44 @@ module.exports = {
       },
     ],
     indent: [
-      'error',
+      ERROR,
       2,
       {
         SwitchCase: 1,
       },
     ],
-    'no-mixed-requires': 0,
-    'no-underscore-dangle': 0,
+    'no-mixed-requires': OFF,
+    'no-underscore-dangle': OFF,
     strict: [
-      0,
-      'never',
+      ERROR,
+      'safe',
     ],
-    'no-var': 0,
-    'no-unused-vars': 2,
+    'no-var': ERROR,
+    'no-unused-vars': ERROR,
     semi: [
       1,
       'always',
     ],
-    'no-use-before-define': 2,
-    'no-undef': 2,
+    'no-use-before-define': ERROR,
+    'no-undef': ERROR,
+    'comma-spacing': [
+      ERROR,
+      {
+        before: false,
+        after: true,
+      },
+    ],
     'comma-dangle': [
-      1,
+      WARN,
       'always-multiline',
     ],
-    'new-parens': 1,
+    'func-call-spacing': [
+      ERROR,
+      'never',
+    ],
+    'new-parens': WARN,
     'padding-line-between-statements': [
-      'error',
+      ERROR,
       {
         blankLine: 'always',
         prev: '*',
@@ -88,7 +119,7 @@ module.exports = {
       },
     ],
     'space-before-function-paren': [
-      'error',
+      ERROR,
       {
         anonymous: 'never',
         named: 'never',
@@ -96,18 +127,18 @@ module.exports = {
       },
     ],
     'arrow-parens': [
-      'warn',
+      WARN,
       'as-needed',
     ],
     'arrow-spacing': [
-      'error',
+      ERROR,
       {
         before: true,
         after: true,
       },
     ],
     'key-spacing': [
-      'error',
+      ERROR,
       {
         beforeColon: false,
         afterColon: true,
@@ -115,24 +146,43 @@ module.exports = {
       },
     ],
     'keyword-spacing': [
-      'error',
+      ERROR,
       {
         before: true,
         after: true,
       },
     ],
     'array-bracket-newline': [
-      'warn',
+      WARN,
       {
         multiline: true,
       },
     ],
+    'space-in-parens': [
+      WARN,
+      'always',
+      {
+        exceptions: [
+          'empty',
+          '()',
+          '{}',
+          '[]',
+        ],
+      },
+    ],
     'array-bracket-spacing': [
-      'warn',
+      WARN,
       'always',
     ],
+    'computed-property-spacing': [
+      WARN,
+      'always',
+      {
+        enforceForClassMembers: true,
+      },
+    ],
     'object-curly-newline': [
-      'error',
+      ERROR,
       {
         ObjectExpression: {
           consistent: true,
@@ -151,17 +201,17 @@ module.exports = {
       },
     ],
     'object-curly-spacing': [
-      'warn',
+      WARN,
       'always',
     ],
     'object-property-newline': [
-      'error',
+      ERROR,
       {
         allowAllPropertiesOnSameLine: true,
       },
     ],
     'quote-props': [
-      'warn',
+      WARN,
       'as-needed',
     ],
   },
