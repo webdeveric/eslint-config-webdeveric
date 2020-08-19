@@ -2,6 +2,10 @@ const OFF = 'off';
 const WARN = 'warn';
 const ERROR = 'error';
 
+const ALWAYS = 'always';
+const AS_NEEDED = 'as-needed';
+const NEVER = 'never';
+
 module.exports = {
   extends: 'eslint:recommended',
   parser: 'babel-eslint',
@@ -57,8 +61,8 @@ module.exports = {
     'no-var': ERROR,
     'no-unused-vars': ERROR,
     semi: [
-      1,
-      'always',
+      ERROR,
+      ALWAYS,
     ],
     'no-use-before-define': ERROR,
     'no-undef': ERROR,
@@ -69,24 +73,36 @@ module.exports = {
         after: true,
       },
     ],
+    'comma-style': [
+      ERROR,
+      'last',
+    ],
     'comma-dangle': [
       WARN,
       'always-multiline',
     ],
     'func-call-spacing': [
       ERROR,
-      'never',
+      NEVER,
     ],
     'new-parens': WARN,
+    'padded-blocks': [
+      ERROR,
+      NEVER,
+    ],
+    'lines-between-class-members': [
+      ERROR,
+      ALWAYS,
+    ],
     'padding-line-between-statements': [
       ERROR,
       {
-        blankLine: 'always',
+        blankLine: ALWAYS,
         prev: '*',
         next: 'return',
       },
       {
-        blankLine: 'always',
+        blankLine: ALWAYS,
         prev: [
           'const',
           'let',
@@ -108,7 +124,7 @@ module.exports = {
         ],
       },
       {
-        blankLine: 'always',
+        blankLine: ALWAYS,
         prev: 'directive',
         next: '*',
       },
@@ -121,14 +137,14 @@ module.exports = {
     'space-before-function-paren': [
       ERROR,
       {
-        anonymous: 'never',
-        named: 'never',
-        asyncArrow: 'always',
+        anonymous: NEVER,
+        named: NEVER,
+        asyncArrow: ALWAYS,
       },
     ],
     'arrow-parens': [
       WARN,
-      'as-needed',
+      AS_NEEDED,
     ],
     'arrow-spacing': [
       ERROR,
@@ -158,28 +174,52 @@ module.exports = {
         multiline: true,
       },
     ],
-    'space-in-parens': [
-      WARN,
-      'always',
+    'space-infix-ops': [
+      ERROR,
       {
-        exceptions: [
-          'empty',
-          '()',
-          '{}',
-          '[]',
-        ],
+        int32Hint: true,
       },
     ],
+    'space-unary-ops': [
+      ERROR,
+      {
+        words: true,
+        nonwords: false,
+        overrides: {
+          '!': true,
+        },
+      },
+    ],
+    'spaced-comment': [
+      ERROR,
+      ALWAYS,
+    ],
+    'switch-colon-spacing': [
+      ERROR,
+      {
+        after: true,
+        before: false,
+      },
+    ],
+    'template-tag-spacing': [
+      ERROR,
+      NEVER,
+    ],
+    'space-in-parens': OFF,
     'array-bracket-spacing': [
       WARN,
-      'always',
+      ALWAYS,
     ],
     'computed-property-spacing': [
       WARN,
-      'always',
+      ALWAYS,
       {
         enforceForClassMembers: true,
       },
+    ],
+    curly: [
+      ERROR,
+      'all',
     ],
     'object-curly-newline': [
       ERROR,
@@ -202,7 +242,7 @@ module.exports = {
     ],
     'object-curly-spacing': [
       WARN,
-      'always',
+      ALWAYS,
     ],
     'object-property-newline': [
       ERROR,
@@ -212,7 +252,7 @@ module.exports = {
     ],
     'quote-props': [
       WARN,
-      'as-needed',
+      AS_NEEDED,
     ],
   },
 };
